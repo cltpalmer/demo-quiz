@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Creative Type Quiz</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background-color: black;
+      color: white;
+      font-family: 'Montserrat', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .container {
+      background-color: #333;
+      padding: 20px;
+      border-radius: 10px;
+      width: 80%;
+      max-width: 600px;
+    }
+    .question {
+      margin-bottom: 20px;
+    }
+    .answers {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .answer {
+      display: flex;
+      align-items: center;
+      padding: 10px;
+      border: 2px solid #A883F9;
+      border-radius: 15px;
+      cursor: pointer;
+    }
+    .answer:hover {
+      background-color: white;
+      color: #A883F9;
+      border-color: white;
+    }
+    .submit-btn {
+      background-color: white;
+      border: 2px solid #A883F9;
+      color: #A883F9;
+      padding: 10px 20px;
+      border-radius: 10px;
+      cursor: pointer;
+      display: block;
+      margin: 20px auto;
+    }
+    .submit-btn:hover {
+      background-color: #6a0dad;
+      color: white;
+    }
+    .result {
+      color: red;
+      display: none;
+      text-align: center;
+      margin-top: 20px;
+    }
+    .popup {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      justify-content: center;
+      align-items: center;
+    }
+    .popup-content {
+      background-color: #A883F9;
+      color: white;
+      padding: 20px;
+      border-radius: 10px;
+      text-align: center;
+    }
+    .popup-close {
+      background-color: white;
+      color: #A883F9;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 10px;
+      cursor: pointer;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <div class="question" data-question="1">
+    <p>Which medium do you prefer for expressing your creativity?</p>
+    <div class="answers">
+      <div class="answer" data-answer="Explorer">Drawing</div>
+      <div class="answer" data-answer="Dreamer">Painting</div>
+      <div class="answer" data-answer="Innovator">Digital Art</div>
+      <div class="answer" data-answer="Explorer">Collage</div>
+      <div class="answer" data-answer="Realist">Sculpting</div>
+    </div>
+  </div>
+
+  <div class="question" data-question="2">
+    <p>How do you usually feel when you start a new art project?</p>
+    <div class="answers">
+      <div class="answer" data-answer="Innovator">Excited</div>
+      <div class="answer" data-answer="Realist">Calm</div>
+      <div class="answer" data-answer="Dreamer">Anxious</div>
+      <div class="answer" data-answer="Explorer">Curious</div>
+      <div class="answer" data-answer="Realist">Focused</div>
+    </div>
+  </div>
+
+  <div class="question" data-question="3">
+    <p>How often do you engage in creative activities?</p>
+    <div class="answers">
+      <div class="answer" data-answer="Explorer">Daily</div>
+      <div class="answer" data-answer="Realist">Weekly</div>
+      <div class="answer" data-answer="Dreamer">Monthly</div>
+      <div class="answer" data-answer="Innovator">Occasionally</div>
+    </div>
+  </div>
+
+  <div class="question" data-question="4">
+    <p>What time of day do you feel most creative?</p>
+    <div class="answers">
+      <div class="answer" data-answer="Realist">Morning</div>
+      <div class="answer" data-answer="Explorer">Afternoon</div>
+      <div class="answer" data-answer="Dreamer">Evening</div>
+      <div class="answer" data-answer="Innovator">Late Night</div>
+    </div>
+  </div>
+
+  <div class="question" data-question="5">
+    <p>How does creating art affect your mood?</p>
+    <div class="answers">
+      <div class="answer" data-answer="Dreamer">Improves it</div>
+      <div class="answer" data-answer="Realist">Neutral</div>
+      <div class="answer" data-answer="Explorer">Depends on the project</div>
+      <div class="answer" data-answer="Innovator">Makes me reflect</div>
+    </div>
+  </div>
+
+  <div class="question" data-question="6">
+    <p>What type of mood do you usually have when creating art?</p>
+    <div class="answers">
+      <div class="answer" data-answer="Explorer">Happy</div>
+      <div class="answer" data-answer="Dreamer">Reflective</div>
+      <div class="answer" data-answer="Realist">Calm</div>
+      <div class="answer" data-answer="Innovator">Energized</div>
+      <div class="answer" data-answer="Dreamer">Thoughtful</div>
+    </div>
+  </div>
+
+  <div class="question" data-question="7">
+    <p>What do you hope to achieve with your art therapy?</p>
+    <div class="answers">
+      <div class="answer" data-answer="Realist">Relaxation</div>
+      <div class="answer" data-answer="Explorer">Self-Discovery</div>
+      <div class="answer" data-answer="Dreamer">Emotional Expression</div>
+      <div class="answer" data-answer="Innovator">Skill Improvement</div>
+    </div>
+  </div>
+
+  <div class="question" data-question="8">
+    <p>How comfortable are you with experimenting with new art techniques?</p>
+    <div class="answers">
+      <div class="answer" data-answer="Innovator">Very Comfortable</div>
+      <div class="answer" data-answer="Explorer">Somewhat Comfortable</div>
+      <div class="answer" data-answer="Realist">Neutral</div>
+      <div class="answer" data-answer="Dreamer">Uncomfortable</div>
+    </div>
+  </div>
+
+  <div class="question" data-question="9">
+    <p>Which colors are you drawn to when creating art?</p>
+    <div class="answers">
+      <div class="answer" data-answer="Dreamer">Warm Colors</div>
+      <div class="answer" data-answer="Realist">Cool Colors</div>
+      <div class="answer" data-answer="Explorer">Neutral Colors</div>
+      <div class="answer" data-answer="Innovator">Bright Colors</div>
+    </div>
+  </div>
+
+  <div class="question" data-question="10">
+    <p>Do you prefer structured projects or freeform creation?</p>
+    <div class="answers">
+      <div class="answer" data-answer="Realist">Structured</div>
+      <div class="answer" data-answer="Explorer">Freeform</div>
+      <div class="answer" data-answer="Innovator">A mix of both</div>
+      <div class="answer" data-answer="Dreamer">Depends on my mood</div>
+    </div>
+  </div>
+
+  <button class="submit-btn">Submit</button>
+  <div class="result"></div>
+</div>
+
+<div class="popup">
+  <div class="popup-content">
+    <p>Please answer all questions!</p>
+    <button class="popup-close">Close</button>
+  </div>
+</div>
+
+<script>
+  const answers = document.querySelectorAll('.answer');
+  const submitBtn = document.querySelector('.submit-btn');
+  const result = document.querySelector('.result');
+  const popup = document.querySelector('.popup');
+  const popupClose = document.querySelector('.popup-close');
+  
+  let userAnswers = {};
+
+  answers.forEach(answer => {
+    answer.addEventListener('click', () => {
+      const questionNumber = answer.closest('.question').dataset.question;
+      userAnswers[questionNumber] = answer.dataset.answer;
+      answer.closest('.answers').querySelectorAll('.answer').forEach(ans => {
+        ans.style.backgroundColor = '';
+        ans.style.color = '';
+      });
+      answer.style.backgroundColor = '#A883F9';
+      answer.style.color = 'white';
+    });
+  });
+
+  submitBtn.addEventListener('click', () => {
+    if (Object.keys(userAnswers).length !== 10) {
+      popup.style.display = 'flex';
+      return;
+    }
+
+    const score = { Explorer: 0, Dreamer: 0, Realist: 0, Innovator: 0 };
+
+    for (let key in userAnswers) {
+      score[userAnswers[key]] += 1;
+    }
+
+    const maxScore = Math.max(...Object.values(score));
+    const resultType = Object.keys(score).find(key => score[key] === maxScore);
+
+    result.innerText = `Your Creative Type: ${resultType}`;
+    result.style.display = 'block';
+  });
+
+  popupClose.addEventListener('click', () => {
+    popup.style.display = 'none';
+  });
+</script>
+
+</body>
+</html>
